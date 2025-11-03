@@ -3,12 +3,21 @@
 
 #include "GameplayAbilitySystem/Core/BaseCharacter.h"
 
+#include "AbilitySystemComponent.h"
+#include "GameplayAbilitySystem/Core/BasePlayerState.h"
+
 // Sets default values
 ABaseCharacter::ABaseCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+}
 
+void ABaseCharacter::InitAbilityActorInfo()
+{
+	ABasePlayerState* BasePlayerState = GetPlayerState<ABasePlayerState>();
+	check(BasePlayerState);
+	BasePlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(BasePlayerState,this);
 }
 
 // Called when the game starts or when spawned
@@ -31,4 +40,6 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 }
+
+
 

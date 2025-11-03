@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "BaseCharacter.generated.h"
 
+class ABasePlayerState;
+
 UCLASS()
 class GAS_STARTERKIT_API ABaseCharacter : public ACharacter
 {
@@ -14,6 +16,10 @@ class GAS_STARTERKIT_API ABaseCharacter : public ACharacter
 public:
 	// Sets default values for this character's properties
 	ABaseCharacter();
+	
+	// Initializes ASC ActorInfo (OwnerActor = PlayerState, AvatarActor = Current Pawn)
+	UFUNCTION(BlueprintCallable, Category="GAS")
+	void InitAbilityActorInfo();
 
 protected:
 	// Called when the game starts or when spawned
@@ -25,5 +31,4 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 };
