@@ -14,4 +14,7 @@ class GAS_STARTERKIT_API UBaseAbilitySystemComponent : public UAbilitySystemComp
 {
 	GENERATED_BODY()
 	
+public:
+	//include attribute sets here
+	
 };
