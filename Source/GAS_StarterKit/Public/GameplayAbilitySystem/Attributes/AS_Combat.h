@@ -20,7 +20,7 @@ public:
 	 * Vital attributes
 	 */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly,ReplicatedUsing=OnRep_Health, Category = "Attributes|Combat")
-	FGameplayAttributeData Health;
+	FGameplayAttributeData Health; //CORE
 	ATTRIBUTE_ACCESSORS(UAS_Combat, Health)
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly,ReplicatedUsing=OnRep_MaxHealth, Category = "Attributes|Combat")
@@ -32,17 +32,17 @@ public:
 	
 	//base damage for melee/weapon strikes
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly,ReplicatedUsing=OnRep_PhysicalAttack, Category = "Attributes|Combat")
-	FGameplayAttributeData PhysicalAttack;
+	FGameplayAttributeData PhysicalAttack; //CORE
 	ATTRIBUTE_ACCESSORS(UAS_Combat, PhysicalAttack)
 
 	//base damage for spells and arcane abilities
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing=OnRep_MagicalAttack, Category = "Attributes|Combat")
-	FGameplayAttributeData MagicalAttack;
+	FGameplayAttributeData MagicalAttack; //CORE
 	ATTRIBUTE_ACCESSORS(UAS_Combat, MagicalAttack)
 
 	//damage from non-physical sources (chi, aura, tech, etc.)
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing=OnRep_EnergyAttack, Category = "Attributes|Combat")
-	FGameplayAttributeData EnergyAttack;
+	FGameplayAttributeData EnergyAttack; //CORE
 	ATTRIBUTE_ACCESSORS(UAS_Combat, EnergyAttack)
 
 	//damage that ignores all defenses
@@ -62,12 +62,12 @@ public:
 
 	//frequency of attacks per second or turn
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing=OnRep_AttackSpeed, Category = "Attributes|Combat")
-	FGameplayAttributeData AttackSpeed;
+	FGameplayAttributeData AttackSpeed; //CORE
 	ATTRIBUTE_ACCESSORS(UAS_Combat, AttackSpeed)
 
 	// scaling factor for abilities
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing=OnRep_SkillPower, Category = "Attributes|Combat")
-	FGameplayAttributeData SkillPower;
+	FGameplayAttributeData SkillPower; //CORE
 	ATTRIBUTE_ACCESSORS(UAS_Combat, SkillPower)
 
 	/*
@@ -139,12 +139,12 @@ public:
 
 	//chance to hit evasive targets
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing=OnRep_Accuracy, Category = "Attributes|Combat")
-	FGameplayAttributeData Accuracy;
+	FGameplayAttributeData Accuracy; //CORE
 	ATTRIBUTE_ACCESSORS(UAS_Combat, Accuracy)
 
 	//chance to avoid incoming attacks
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing=OnRep_Evasion, Category = "Attributes|Combat")
-	FGameplayAttributeData Evasion;
+	FGameplayAttributeData Evasion; //CORE
 	ATTRIBUTE_ACCESSORS(UAS_Combat, Evasion)
 
 	//percentage of damage converted to healing

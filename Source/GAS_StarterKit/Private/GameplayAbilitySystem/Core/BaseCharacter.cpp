@@ -2,32 +2,46 @@
 
 
 #include "GameplayAbilitySystem/Core/BaseCharacter.h"
-
 #include "AbilitySystemComponent.h"
-#include "GameplayAbilitySystem/Core/BasePlayerState.h"
+#include "GameplayAbilitySystem/Attributes/AS_Combat.h"
+#include "GameplayAbilitySystem/Core/BaseAbilitySystemComponent.h"
+
 
 // Sets default values
 ABaseCharacter::ABaseCharacter()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	//Creating the AbilitySystemComponent and AttributeSet
+	AbilitySystemComponent = CreateDefaultSubobject<UBaseAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
+	AbilitySystemComponent->SetIsReplicated(true);
+	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
+	CombatAttributeSet = CreateDefaultSubobject<UAS_Combat>(TEXT("CombatAttributeSet"));
+	SetNetUpdateFrequency(100.f);
+}
+
+UAbilitySystemComponent* ABaseCharacter::GetAbilitySystemComponent() const
+{
+	return  AbilitySystemComponent;
 }
 
 void ABaseCharacter::InitAbilityActorInfo()
 {
-	ABasePlayerState* BasePlayerState = GetPlayerState<ABasePlayerState>();
-	check(BasePlayerState);
-	BasePlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(BasePlayerState,this);
+	AbilitySystemComponent->InitAbilityActorInfo(this,this);
 }
 
-// Called when the game starts or when spawned
+void ABaseCharacter::ApplyGameplayEffectToSelf(const TSubclassOf<UGameplayEffect> GameplayEffect) const
+{
+	FGameplayEffectContextHandle EffectContext = AbilitySystemComponent->MakeEffectContext();
+	FGameplayEffectSpecHandle EffectSpecHandle = AbilitySystemComponent->MakeOutgoingSpec(GameplayEffect, 1.f,EffectContext);
+	AbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*EffectSpecHandle.Data.Get());
+}
+
 void ABaseCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	InitAbilityActorInfo();
 }
 
-// Called every frame
 void ABaseCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -39,6 +53,21 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+/*
+ * Progression Stats functions 
+ */
+void ABaseCharacter::AddExperience(int32 Amount)
+{
+}
+
+void ABaseCharacter::RankUp()
+{
+}
+
+void ABaseCharacter::Evolve()
+{
 }
 
 
