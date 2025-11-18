@@ -65,8 +65,8 @@ GameplayTags.Attributes_Damage_Lightning  = UGameplayTagsManager::Get().AddNativ
     FName("Attributes.Damage.Lightning"), FString("Damage dealt as lightning element"));
 GameplayTags.Attributes_Damage_Poison     = UGameplayTagsManager::Get().AddNativeGameplayTag(
     FName("Attributes.Damage.Poison"), FString("Damage dealt as poison element"));
-GameplayTags.Attributes_Damage_Shadow     = UGameplayTagsManager::Get().AddNativeGameplayTag(
-    FName("Attributes.Damage.Shadow"), FString("Damage dealt as shadow/dark element"));
+GameplayTags.Attributes_Damage_Dark     = UGameplayTagsManager::Get().AddNativeGameplayTag(
+    FName("Attributes.Damage.Dark"), FString("Damage dealt as shadow/dark element"));
 GameplayTags.Attributes_Damage_Holy       = UGameplayTagsManager::Get().AddNativeGameplayTag(
     FName("Attributes.Damage.Holy"), FString("Damage dealt as holy/light element"));
 

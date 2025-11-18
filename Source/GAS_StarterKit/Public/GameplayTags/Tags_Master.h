@@ -1,7 +1,7 @@
 // GAS starter kit by Mehdi Feizzadeh
 
 #pragma once
-
+	
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
 /**
@@ -52,7 +52,7 @@ public:
 	FGameplayTag Attributes_Damage_Ice;            // Ice Damage
 	FGameplayTag Attributes_Damage_Lightning;      // Lightning Damage
 	FGameplayTag Attributes_Damage_Poison;         // Poison Damage
-	FGameplayTag Attributes_Damage_Shadow;         // Shadow/Dark Damage
+	FGameplayTag Attributes_Damage_Dark;         // Shadow/Dark Damage
 	FGameplayTag Attributes_Damage_Holy;           // Holy Damage
 
 	//Utility Combat Attributes

@@ -3,8 +3,12 @@
 
 #include "GameplayAbilitySystem/Data/AttributeInfo.h"
 
+UAttributeInfo::UAttributeInfo()
+{
+}
+
 FAbilitySystemAttributeInfo UAttributeInfo::FindAttributeInfoForTag(const FGameplayTag& AttributeTag,
-	const bool bLogNotFound) const
+                                                                    const bool bLogNotFound) const
 {
 	for (const FAbilitySystemAttributeInfo& Info : AttributeInformation)
 	{
