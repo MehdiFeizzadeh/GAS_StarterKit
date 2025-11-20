@@ -34,7 +34,7 @@ class GAS_STARTERKIT_API UAttributeInfo : public UDataAsset
 	GENERATED_BODY()
 
 public:
-	UAttributeInfo();
+
 	FAbilitySystemAttributeInfo FindAttributeInfoForTag(const FGameplayTag& AttributeTag, bool bLogNotFound=false) const;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
